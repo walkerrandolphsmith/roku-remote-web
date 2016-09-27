@@ -1,0 +1,38 @@
+{
+  "name": "roku-remote",
+  "version": "1.0.0",
+  "description": "Promotional website for Android and IOS app, roku remote.",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build",
+    "start": "gulp",
+    "deploy": "git subtree push --prefix dist origin gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walkerrandolphsmith/roku-remote-web.git"
+  },
+  "keywords": ["roku", "remote", "android", "iphone", "ios"],
+  "author": "walkerrandolphsmith@gmail.com",
+  "contributors": ["walkerrandolphsmith@gmail.com"],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/walkerrandolphsmith/roku-remote-web/issues"
+  },
+  "homepage": "https://github.com/walkerrandolphsmith/roku-remote-web#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.6.3",
+    "react": "^15.3.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "less-plugin-autoprefix": "^1.5.1",
+    "require-dir": "^0.3.0"
+  }
+}

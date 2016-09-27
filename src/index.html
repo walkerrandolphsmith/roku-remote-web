@@ -1,0 +1,195 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="atlantis-vending.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row hero">
+                <h1>Roku</h1>
+            </div>
+
+            <div class="row headers">
+                <div class="col-lg-4">
+                    <i class="fa fa-search"></i>
+                    <h2>Search</h2>
+                    <p>Control as many rokus as you like.</p>
+                </div>
+
+                <div class="col-lg-4">
+                    <i class="fa fa-play"></i>
+                    <h2>Control</h2>
+                    <p>Control your roku from your phone.</p>
+                </div>
+
+                <div class="col-lg-4">
+                    <i class="fa fa-th"></i>
+                    <h2>Favorites</h2>
+                    <p>Play your favorite channel with one touch.</p>
+                </div>
+            </div>
+
+            <div class="row center">
+                <div>
+                    <div class="button-wrapper">
+                        <a class="a-btn" href="assets/google-play-button/arrow_down.png">
+                            <span class="a-btn-slide-text">$0</span>
+                            <img src="assets/google-play-button/google-play-store.png" alt="store" />
+                            <span class="a-btn-text"><small>Limited Time</small>&beta; test</span>
+                            <span class="a-btn-icon-right"><span></span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="cbp-so-scroller" class="cbp-so-scroller">
+                    <section class="cbp-so-section">
+                        <article class="cbp-so-side cbp-so-side-left">
+                            <h3>Search By Address</h3>
+                            <p>Find places the way you already know how.</p>
+                        </article>
+                        <figure class="cbp-so-side cbp-so-side-right">
+                            <img class="device" src="assets/devices/search-address.png" />
+                        </figure>
+                    </section>
+                    <section class="cbp-so-section">
+                        <article class="cbp-so-side cbp-so-side-left">
+                            <h3>Search By Address</h3>
+                            <p>Find places the way you already know how.</p>
+                        </article>
+                        <figure class="cbp-so-side cbp-so-side-right">
+                            <img class="device" src="assets/devices/search-address.png" />
+                        </figure>
+                    </section>
+                    <section class="cbp-so-section">
+                        <article class="cbp-so-side cbp-so-side-left">
+                            <h3>Search By Address</h3>
+                            <p>Find places the way you already know how.</p>
+                        </article>
+                        <figure class="cbp-so-side cbp-so-side-right">
+                            <img class="device" src="assets/devices/search-address.png" />
+                        </figure>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            new scroller(document.getElementById('cbp-so-scroller'));
+        });
+
+        function getViewportH() {
+            var docElem = window.document.documentElement;
+            var client = docElem['clientHeight'],
+                    inner = window['innerHeight'];
+
+            if(client < inner)
+                return inner;
+            else
+                return client;
+        }
+
+        function scrollY(){
+            var docElem = window.document.documentElement;
+            return window.pageYOffset || docElem.scrollTop;
+        }
+
+        function getOffset(el) {
+
+            var offsetTop = 0, offsetLeft = 0;
+            do {
+                if (!isNaN(el.offsetTop)) {
+                    offsetTop += el.offsetTop;
+                }
+                if (!isNaN(el.offsetLeft)) {
+                    offsetLeft += el.offsetLeft;
+                }
+            } while(el = el.offsetParent);
+            return {
+                top : offsetTop,
+                left : offsetLeft
+            }
+        }
+
+        function inViewport(el, h) {
+            var elH = el.offsetHeight;
+            var scrolled = scrollY();
+            var viewed = scrolled + getViewportH();
+            var elTop = getOffset(el).top;
+            var elBottom = elTop + elH;
+            h = h || 0;
+
+            return (elTop + elH * h) <= viewed && (elBottom) >= scrolled;
+        }
+
+        function extend(a, b) {
+            for(var key in b) {
+                if(b.hasOwnProperty(key)) {
+                    a[key] = b[key];
+                }
+            }
+            return a;
+        }
+
+        function scroller(el, options) {
+            this.el = el;
+            this.options = extend(this.defaults, options);
+            this._init();
+        }
+
+        scroller.prototype = {
+            defaults : {
+                viewportFactor : 0.2
+            },
+            _init : function() {
+                this.sections = Array.prototype.slice.call(this.el.querySelectorAll('.cbp-so-section'));
+                this.didScroll = false;
+
+                var self = this;
+                this.sections.forEach(function(el) {
+                    if(!inViewport(el)) {
+                        el.classList.add('cbp-so-init');
+                    }
+                });
+
+                var scrollHandler = function() {
+                    if(!self.didScroll) {
+                        self.didScroll = true;
+                        setTimeout(function() { self._scrollPage(); }, 60);
+                    }
+                },
+                resizeHandler = function() {
+                    function delayed() {
+                        self._scrollPage();
+                        self.resizeTimeout = null;
+                    }
+                    if (self.resizeTimeout) {
+                        clearTimeout(self.resizeTimeout);
+                    }
+                    self.resizeTimeout = setTimeout(delayed, 200);
+                };
+
+                window.addEventListener('scroll', scrollHandler, false);
+                window.addEventListener('resize', resizeHandler, false);
+            },
+            _scrollPage : function() {
+                var self = this;
+
+                this.sections.forEach(function(el, i) {
+                    if(inViewport(el, self.options.viewportFactor)) {
+                        el.classList.add('cbp-so-animate');
+                    }
+                    else {
+                        el.classList.add('cbp-so-init');
+                        el.classList.remove('cbp-so-animate');
+                    }
+                });
+                this.didScroll = false;
+            }
+        }
+    </script>
+</html>
