@@ -20,11 +20,7 @@
     "url": "https://github.com/walkerrandolphsmith/roku-remote-web/issues"
   },
   "homepage": "https://github.com/walkerrandolphsmith/roku-remote-web#readme",
-  "dependencies": {
-    "bootstrap": "^3.3.6",
-    "font-awesome": "^4.6.3",
-    "react": "^15.3.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.13.0",
     "gulp": "^3.9.1",
