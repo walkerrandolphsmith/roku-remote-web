@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="roku-remote.css" />
     </head>
     <body>
-        <div class="container">
+        <div id="container" class="container">
             <div class="row hero">
                 <h1>Roku</h1>
             </div>
@@ -57,11 +57,11 @@
                     </section>
                     <section class="cbp-so-section">
                         <article class="cbp-so-side cbp-so-side-left">
-                            <h3>Search By Address</h3>
-                            <p>Find places the way you already know how.</p>
+                            <h3>Open Your Favorite Channels</h3>
+                            <p>Netflix, Hulu, Sling and more can be opened with one tap.</p>
                         </article>
                         <figure class="cbp-so-side cbp-so-side-right">
-                            <img class="device" src="assets/devices/remote.png" />
+                            <img class="device" src="assets/devices/channels.png" />
                         </figure>
                     </section>
                     <section class="cbp-so-section">
@@ -79,7 +79,7 @@
     </body>
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {
-            new scroller(document.getElementById('cbp-so-scroller'));
+            new scroller(document.getElementById('body'));
         });
 
         function getViewportH() {
@@ -143,7 +143,7 @@
 
         scroller.prototype = {
             defaults : {
-                viewportFactor : 0.2
+                viewportFactor : 0.3
             },
             _init : function() {
                 this.sections = Array.prototype.slice.call(this.el.querySelectorAll('.cbp-so-section'));
@@ -180,6 +180,7 @@
                 var self = this;
 
                 this.sections.forEach(function(el, i) {
+                    console.log("inView", inViewport(el));
                     if(inViewport(el, self.options.viewportFactor)) {
                         el.classList.add('cbp-so-animate');
                     }
