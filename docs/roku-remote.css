@@ -1,0 +1,285 @@
+@import url(https://fonts.googleapis.com/css?family=Puritan:400,700|Oswald);
+@import url(https://fonts.googleapis.com/css?family=Dosis:200,600);
+.cbp-so-scroller {
+  position: relative;
+  z-index: 5 !important;
+  margin-top: 3em;
+  overflow: hidden;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.cbp-so-section {
+  margin-bottom: none;
+}
+.cbp-so-section:before,
+.cbp-so-section:after {
+  content: " ";
+  display: table;
+}
+.cbp-so-section:after {
+  clear: both;
+}
+.cbp-so-section h3 {
+  font-size: 5em;
+  font-weight: 300;
+  line-height: 1;
+}
+.cbp-so-section p {
+  font-size: 2em;
+  font-weight: 300;
+}
+.cbp-so-side {
+  text-align: center;
+  margin: 0;
+  padding: 3em 4%;
+  overflow: hidden;
+  min-height: 12em;
+  -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+  -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+  transition: opacity 0.5s, -webkit-transform 0.5s;
+  transition: transform 0.5s, opacity 0.5s;
+  transition: transform 0.5s, opacity 0.5s, -webkit-transform 0.5s;
+}
+.cbp-so-side h3 {
+  font-family: "Oswald";
+}
+.cbp-so-side p {
+  font-family: 'Dosis';
+}
+#cbp-so-slide-notify {
+  padding: 0;
+  margin-top: -4em !important;
+}
+.cbp-so-side:before,
+.cbp-so-side:after {
+  content: " ";
+  display: table;
+}
+.cbp-so-side:after {
+  clear: both;
+}
+.cbp-so-init .cbp-so-side {
+  opacity: 0;
+}
+.cbp-so-init .cbp-so-side-left {
+  -webkit-transform: translateX(-80px);
+  transform: translateX(-80px);
+}
+.cbp-so-init .cbp-so-side-right {
+  -webkit-transform: translateX(80px);
+  transform: translateX(80px);
+}
+.cbp-so-section.cbp-so-animate .cbp-so-side-left,
+.cbp-so-section.cbp-so-animate .cbp-so-side-right {
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+  opacity: 1;
+}
+.a-btn {
+  cursor: pointer;
+  background: #4575a4;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(#4575a4, 0), color-stop(#4575a4, 1));
+  background: -webkit-linear-gradient(top, #4575a4 0%, #4575a4 100%);
+  background: linear-gradient(top, #4575a4 0%, #4575a4 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a9db80', endColorstr='@flat_blue', GradientType=0);
+  padding-left: 90px;
+  padding-right: 105px;
+  height: 90px;
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  font-family: Oswald;
+  border: 1px solid #4575a4;
+  box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  float: left;
+  clear: both;
+  margin: 10px 0px;
+  overflow: hidden;
+  -webkit-transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.a-btn:focus {
+  color: white;
+}
+.a-btn img {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+  height: 52px;
+  width: 52px;
+  border: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.a-btn .a-btn-slide-text {
+  position: absolute;
+  font-size: 36px;
+  top: 18px;
+  left: 18px;
+  color: #fff;
+  opacity: 0;
+  text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.4);
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+.a-btn-text {
+  padding-top: 13px;
+  display: block;
+  font-size: 30px;
+  text-shadow: 0px -1px 1px #4575a4;
+}
+.a-btn-text small {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.a-btn-icon-right {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  width: 80px;
+  border-left: 1px solid #4575a4;
+  box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset;
+}
+.a-btn-icon-right span {
+  width: 38px;
+  height: 38px;
+  opacity: 0.7;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -20px 0px 0px -20px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background: #4575a4 url('../assets/google-play-button/arrow_down.png') no-repeat center center;
+  box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset, 0px 1px 2px rgba(255, 255, 255, 0.5);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.store-img {
+  background: url('../assets/google-play-button/google-play-store.png');
+  width: 50px;
+  height: 50px;
+}
+.a-btn:hover {
+  box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 5px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+.a-btn:hover img {
+  -webkit-transform: scale(10);
+  transform: scale(10);
+  opacity: 0;
+}
+.a-btn:hover .a-btn-slide-text,
+.a-btn:hover .a-btn-icon-right span {
+  opacity: 1;
+}
+.a-btn:active {
+  position: relative;
+  top: 1px;
+  background: #4575a4;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+  border-color: #4575a4;
+}
+.a-btn:active .a-btn-icon-right span {
+  -webkit-transform: scale(1.4);
+  transform: scale(1.4);
+}
+body {
+  -webkit-font-smoothing: antialiased;
+}
+.row {
+  padding: 0;
+  margin-right: 0;
+  margin-left: 0;
+}
+.container {
+  padding-top: 1.5em;
+  padding-right: 0;
+  padding-left: 0;
+}
+.hidden {
+  visibility: hidden;
+}
+.visible {
+  visibility: visible;
+}
+.center {
+  text-align: center;
+}
+.center div {
+  display: inline-block;
+}
+.modal-header {
+  text-align: center;
+  text-transform: uppercase;
+}
+.snap-content {
+  z-index: 55;
+  box-shadow: 0 0 8px black;
+  -webkit-transition: all 1.0s ease;
+  transition: all 1.0s ease;
+}
+.btn-primary {
+  background-color: #4575a4 !important;
+  border-color: #4575a4 !important;
+}
+.btn-primary:hover {
+  background-color: #4575a4 !important;
+}
+.hero h1 {
+  font-family: "Oswald";
+  font-size: 12em;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 0.5em;
+  text-align: center;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.hero h1 abbr {
+  border-bottom: none;
+}
+.headers {
+  text-align: center;
+}
+.headers i {
+  font-size: 15em;
+  margin-bottom: 0.25em;
+}
+.headers h2 {
+  font-family: "Oswald";
+  font-size: 4em;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: -20px;
+}
+.headers p {
+  font-family: 'Dosis';
+  font-size: 2em;
+  text-align: center;
+}
+.headers path {
+  pointer-events: none;
+}
+.headers path:first-child {
+  pointer-events: bounding-box !important;
+}
+img.device {
+  width: 250px;
+  height: 500px;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  .headers div {
+    margin-bottom: 10em !important;
+  }
+  h2,
+  h3 {
+    font-size: 6em !important;
+  }
+  p {
+    font-size: 4em !important;
+  }
+}

@@ -7,7 +7,7 @@ var config = require("./config");
 gulp.task('dev', ['styles', 'html', 'assets'], function() {
 
     browserSync.init({
-        server: "./dist",
+        server: "./docs",
         port: config.port
     });
 

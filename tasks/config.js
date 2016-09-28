@@ -1,7 +1,7 @@
 var pkg = require('./../package.json');
 
 var src = './src';
-var dest = './dist';
+var dest = './docs';
 
 var config = {
     port: 3000,
